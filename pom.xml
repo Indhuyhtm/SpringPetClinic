@@ -27,7 +27,7 @@
     <webjars-jquery.version>2.2.4</webjars-jquery.version>
     <wro4j.version>1.8.0</wro4j.version>
 
-    <jacoco.version>0.8.2</jacoco.version>
+    <jacoco.version>0.8.10</jacoco.version>
 
   </properties>
 
@@ -175,6 +175,19 @@
         </configuration>
       </plugin>
 
+      <plugins>
+    <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-surefire-plugin</artifactId>
+        <version>3.0.0</version>
+        <configuration>
+            <forkCount>1</forkCount> <!-- or try different values -->
+            <reuseForks>true</reuseForks>
+        </configuration>
+    </plugin>
+</plugins>
+
+        
       <plugin>
         <groupId>ro.isdc.wro4j</groupId>
         <artifactId>wro4j-maven-plugin</artifactId>
