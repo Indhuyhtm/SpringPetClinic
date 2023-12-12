@@ -1,1 +1,28 @@
+pipeline{
+     agent any
+        stages{
+    
+    stage("checkout")
+    {
+        steps{
+        git branch: 'main', credentialsId: 'fb34ddd4-af9f-4efa-a8cc-9081f5021acc', url: 'https://github.com/Indhuyhtm/SpringPetClinic/'
+    
+        }
+    }
+    stage("build")
+    {
+        steps{
+       bat 'mvn package'
+        }
+    }
+    stage("capture")
+    {
+        steps{
+        archiveArtifacts artifacts: '**/target/*.jar'
+        junit '**/target/surefire-reports/TEST*.xml'
+        jacoco()
+        }
+    }
+}
+}
 
