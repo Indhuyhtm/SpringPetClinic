@@ -24,5 +24,11 @@ pipeline{
         }
     }
 }
+post{
+always
+{
+emailext body: 'Jenkins file', subject: 'Jenkins', to: 'indhumathicseksrct@gmail.com'
+}
+}
 }
 
